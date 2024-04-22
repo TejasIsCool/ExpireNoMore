@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "com.tejasisamazing.expirenomore.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"ExpireLengthner"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
