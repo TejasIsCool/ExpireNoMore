@@ -3,7 +3,8 @@
 	"package": "com.tejasisamazing.expirenomore.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
-		"ExpireLengthner"
+		"ExpireLengthner",
+		"CacheAddEditor"
 	],
 	"injectors": {
 		"defaultRequire": 1
