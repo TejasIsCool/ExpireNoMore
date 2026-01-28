@@ -19,14 +19,14 @@ import java.util.Locale;
 // Works by overriding the getExpirationDate method in the UserCache.Entry
 // And then instead of returning the current expiration date, it returns a date a long time after
 // (Specifically it adds 100 years)
-@Mixin(targets = "net.minecraft.util.UserCache$Entry")
+@Mixin(targets = "net.minecraft.server.players.CachedUserNameToIdResolver$GameProfileInfo")
 abstract class ExpireLengthner{
-    @Shadow @Final
+    @Final
     private GameProfile profile;
     @Shadow @Mutable
     Date expirationDate;
 
-    @Inject(method = "getExpirationDate()Ljava/util/Date;", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "expirationDate()Ljava/util/Date;", at = @At("HEAD"), cancellable = true)
     private void getFutureExpirationDate(CallbackInfoReturnable<Date> returner) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(expirationDate);
@@ -43,7 +43,7 @@ abstract class ExpireLengthner{
 
             ExpireNoMore.LOGGER.info(
                     "Changed usercache expire time of {"
-                            + "\"name\": \"" + profile.getName() + "\", \"id\": " + profile.getId() + "}"
+                            + "\"name\": \"" + profile.name() + "\", \"id\": " + profile.id() + "}"
                             + " from ("
                             + dateFormat.format(expirationDate)
                             + ") to ("
