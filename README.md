@@ -27,7 +27,7 @@ So to finally fix that, I decided to make this mod. I don't know if there is any
 
 ## About the mod
 
-This mod should work on all possible fabric version(from `1.14.4` to the latest snapshot), with atleast the fabric loader version being above `0.15.1`  
+The `1.1.0` version of the mod should work on most fabric version(from `1.14.4` to the `1.21.8`), and the `1.2.0` version working for `1.21.9`-`1.21.11`, with atleast the fabric loader version being above `0.15.1`  
 
 The minimum java requirement is `java 8`, although any higher version will work.  
 
